@@ -9,7 +9,7 @@ pipeline {
 
     	stage('Check Out from SCM') { // Get some code from a GitHub repository
       	  steps {
-		git 'https://github.com/AnilReddy231/letstrytoplay.git'
+		git 'https://github.com/AnilReddy231/ec2_launch.git'
 	  }
    	}
 
