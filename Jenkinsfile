@@ -8,9 +8,9 @@ pipeline {
     stages {
 
     	stage('Check Out from SCM') { // Get some code from a GitHub repository
-      		
+      	  steps {
 		git 'https://github.com/AnilReddy231/letstrytoplay.git'
-
+	  }
    	}
 
 	stage('BuildingModule') {
