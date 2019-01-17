@@ -1,0 +1,31 @@
+---
+### terminate AWS EC/2 instances
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  user: root
+  pre_tasks:
+    - include_vars: ../vars/variables.yml
+  tasks:
+    - name: Get EC2 instance IDs
+      run_once: true
+      ec2_remote_facts:
+        filters:
+          "tag:Type": "{{ ec2_instance_type }}"
+          "tag:Name": "{{ ec2_tag_Name }}"
+        region: "{{ ec2_region }}"
+      register: instances
+
+    - name: display instances
+      run_once: true
+      debug:
+        var: instances
+
+    - name: Remove registered instances
+      run_once: true
+      ec2:
+        state: absent
+        wait: true
+        instance_ids: "{{instances|json_query('instances[*].id')}}"
+        region: "{{ ec2_region }}"
+      when: instances
