@@ -6,7 +6,7 @@
 #  pre_tasks:
 #    - include_vars: ../vars/variables.yml
 #  tasks:
-    - name: Security Group for instances Provisioned using Ansible
+    - name: Security Group Creation for instances that will be provisioning using Ansible
       ec2_group:
         name: "scg-ansible"
         vpc_id: "{{ vpc_id }}"
