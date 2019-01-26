@@ -42,9 +42,9 @@ pipeline {
               body: "Build had been successfully completed"
         }
       failure {
-        mail to: 'anilkumr231.g@gmail.com',
-             subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-             body: "Something is wrong with ${env.BUILD_URL}"
+            mail to: 'anilkumr231.g@gmail.com',
+              subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
+              body: "Something is wrong with ${env.BUILD_URL}"
     }
       unstable {
           echo 'Build is Unstable'
