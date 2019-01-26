@@ -15,7 +15,7 @@ pipeline {
 	           }
    	}
 
-	stage('BuildingModule') {
+	   stage('BuildingModule') {
 	      steps {
 
         	sh '/usr/bin/ansible-playbook ansible-ec2-provision.yml -vv > Build.log'
@@ -23,7 +23,7 @@ pipeline {
       	}
     }
     stage('BuildStatus') {
-        steps{
+        steps {
               build_log = readFile('Build.log').trim()
               echo "${build_log}"
             }
