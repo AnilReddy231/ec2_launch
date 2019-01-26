@@ -37,7 +37,7 @@ pipeline {
           echo 'One way or another, Pipeline had finished executing'
           }
       success {
-          echo "The pipeline ${currentBuild.fullDisplayName} completed successfully.",
+          echo "The pipeline ${currentBuild.fullDisplayName} completed successfully."
           }
       failure {
           echo "Failed Pipeline: ${currentBuild.fullDisplayName} Something is wrong with ${env.BUILD_URL}"
