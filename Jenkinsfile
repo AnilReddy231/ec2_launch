@@ -21,9 +21,11 @@ pipeline {
 	      steps {
           timeout(time: 5, unit: 'MINUTES') {
             retry(2){
+              script{
               build_log = sh(
               returnStdout: true,
               script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml''').trim()
+              }
               }
               echo " Reading the Build Log "
       	}
