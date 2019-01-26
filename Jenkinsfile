@@ -23,8 +23,8 @@ pipeline {
             retry(2){
               script{
               build_log = sh(
-              script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml''').trim(),
               returnStdout: true,
+              script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml''').trim(),
               }
               }
       	}
