@@ -1,11 +1,4 @@
 ---
-## Creating Security Group
-#- hosts: localhost
-#  connection: local
-#  gather_facts: false
-#  pre_tasks:
-#    - include_vars: ../vars/variables.yml
-#  tasks:
     - name: Security Group Creation for instances that will be provisioning using Ansible
       ec2_group:
         name: "scg-ansible"
@@ -18,7 +11,7 @@
             to_port: 80
             cidr_ip: 0.0.0.0/0
           - proto: tcp
-            from_port: 22 
+            from_port: 22
             to_port: 22
             cidr_ip: 0.0.0.0/0
           - proto: tcp
@@ -26,3 +19,4 @@
             to_port: 443
             cidr_ip: 0.0.0.0/0
       register: sec_grp
+...
