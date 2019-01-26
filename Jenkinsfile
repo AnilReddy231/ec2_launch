@@ -2,7 +2,7 @@ pipeline {
     agent { label 'Controller' }
     options {
         buildDiscarder(
-            // Only keep the 10 most recent builds
+            // Only keep the 3 most recent builds
             logRotator(numToKeepStr:'3'))
             skipDefaultCheckout()
     }
@@ -24,7 +24,7 @@ pipeline {
               script{
               build_log = sh(
               returnStdout: true,
-              script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml -i inventory/ec2.py''').trim()
+              script: '''ansible-playbook --vault-password-file ~/.ssh/vault_password ansible-ec2-provision.yml -i inventory/ec2.py -v''').trim()
               }
               }
       	}

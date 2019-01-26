@@ -1,0 +1,12 @@
+ec2_region: "us-east-1"
+ec2_instance_type: "t2.micro"
+ec2_image: "ami-011b3ccf1bd6db744"
+ec2_keypair: "XXXX_Pair"
+ec2_volume_size: 8
+ec2_count: 1
+ec2_subnet_id: "subnet-xxxxxxxx"
+ec2_tag_Type: "ansible"
+ec2_tag_Role: "EC2-Describe"
+ec2_tag_Name: "Ansible Provisioned"
+iam_role: "EC2-Describe"
+vpc_id: "vpc-xxxxxxxxxx"
