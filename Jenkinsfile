@@ -4,17 +4,17 @@ pipeline {
         buildDiscarder(
             // Only keep the 10 most recent builds
             logRotator(numToKeepStr:'3'))
-
+            timeout(time: 15, unit: 'MINUTES')
             skipDefaultCheckout()
     }
     stages {
 
-    	stage('Check Out from SCM') { // Get some code from a GitHub repository
+/*    	stage('Check Out from SCM') { // Get some code from a GitHub repository
       	  steps {
 		        git 'https://github.com/AnilReddy231/ec2_launch.git'
 	           }
-   	}
-
+   	} */
+    
 	   stage('BuildingModule') {
 	      steps {
 
