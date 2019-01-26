@@ -35,6 +35,7 @@ pipeline {
             }
         } */
   }
+  }
   post {
       always {
           echo 'One way or another, Pipeline had finished executing'
@@ -53,5 +54,4 @@ pipeline {
           echo 'Build is Unstable'
       }
   }
-}
 }
