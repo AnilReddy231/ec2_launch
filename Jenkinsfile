@@ -24,7 +24,7 @@ pipeline {
               script{
               build_log = sh(
               returnStdout: true,
-              script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml''').trim(),
+              script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml''').trim()
               }
               }
       	}
