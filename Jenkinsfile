@@ -23,6 +23,7 @@ pipeline {
             retry(2){
               sh '/usr/bin/ansible-playbook ansible-ec2-provision.yml -vv > Build.log'
               }
+              echo " Reading the Build Log "
       	}
         script{
           echo " Reading the Build Log "
