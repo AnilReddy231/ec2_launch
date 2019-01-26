@@ -25,6 +25,7 @@ pipeline {
               }
       	}
         script{
+          echo " Reading the Build Log "
           build_log = readFile('Build.log').trim()
           }
     }
