@@ -4,13 +4,15 @@ pipeline {
         buildDiscarder(
             // Only keep the 10 most recent builds
             logRotator(numToKeepStr:'3'))
+
+            skipDefaultCheckout()
     }
     stages {
 
     	stage('Check Out from SCM') { // Get some code from a GitHub repository
       	  steps {
-		git 'https://github.com/AnilReddy231/ec2_launch.git'
-	  }
+		        git 'https://github.com/AnilReddy231/ec2_launch.git'
+	           }
    	}
 
 	stage('BuildingModule') {
@@ -20,5 +22,11 @@ pipeline {
 
       	}
     }
-}
+    stage('BuildStatus') {
+        steps{
+              build_log = readFile('Build.log').trim()
+              echo "${build_log}"
+            }
+        }
+  }
 }
