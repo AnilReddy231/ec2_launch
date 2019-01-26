@@ -44,6 +44,7 @@ pipeline {
       success {
             mail to: 'anilkumr231.g@gmail.com',
               subject: "The pipeline ${currentBuild.fullDisplayName} completed successfully."
+              body: "Build had been successfully completed"
         }
       failure {
         mail to: 'anilkumr231.g@gmail.com',
