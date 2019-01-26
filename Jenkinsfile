@@ -11,12 +11,12 @@ pipeline {
     }   */
     stages {
 
-    	stage('Check Out from SCM') { // Get some code from a GitHub repository
+/*    	stage('Check Out from SCM') { // Get some code from a GitHub repository
       	  steps {
 		        git 'https://github.com/AnilReddy231/ec2_launch.git'
 	           }
    	}
-
+*/
 	   stage('BuildingModule') {
 	      steps {
           timeout(time: 5, unit: 'MINUTES') {
