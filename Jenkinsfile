@@ -35,17 +35,16 @@ pipeline {
   post {
       always {
           echo 'One way or another, Pipeline had finished executing'
-          echo "${build_log}"
           }
       success {
-            mail to: 'anilkumr231.g@gmail.com',
+            mail (to: 'anilkumr231.g@gmail.com',
               subject: "The pipeline ${currentBuild.fullDisplayName} completed successfully.",
-              body: "Build had been successfully completed"
+              body: "Build had been successfully completed");
         }
       failure {
-            mail to: 'anilkumr231.g@gmail.com',
+            mail (to: 'anilkumr231.g@gmail.com',
               subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-              body: "Something is wrong with ${env.BUILD_URL}"
+              body: "Something is wrong with ${env.BUILD_URL}");
     }
       unstable {
           echo 'Build is Unstable'
