@@ -27,12 +27,7 @@ pipeline {
               script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml''').trim()
               }
               }
-              echo " Reading the Build Log "
       	}
-        script{
-          echo " Reading the Build Log "
-          build_log = readFile('Build.log').trim()
-          }
     }
 
 /*    stage('Build Result') {
