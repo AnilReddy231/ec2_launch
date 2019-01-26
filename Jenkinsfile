@@ -23,21 +23,13 @@ pipeline {
             retry(2){
               script{
               build_log = sh(
-              returnStdout: true,
+              returnStdout: false,
               script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml''').trim()
               }
               }
       	}
     }
 
-/*    stage('Build Result') {
-        steps {
-              script{
-                build_log = readFile('Build.log').trim()
-                }
-              echo "${build_log}"
-            }
-        } */
   }
   }
   post {
