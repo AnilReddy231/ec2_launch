@@ -6,6 +6,9 @@ pipeline {
             logRotator(numToKeepStr:'3'))
             skipDefaultCheckout()
     }
+    environment {
+        build_log = ""
+    }
     stages {
 
     	stage('Check Out from SCM') { // Get some code from a GitHub repository
