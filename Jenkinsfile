@@ -22,9 +22,12 @@ pipeline {
 
       	}
     }
+
     stage('BuildStatus') {
         steps {
-              build_log = readFile('Build.log').trim()
+              script{
+                build_log = readFile('Build.log').trim()
+                }
               echo "${build_log}"
             }
         }
