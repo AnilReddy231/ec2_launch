@@ -6,9 +6,9 @@ pipeline {
             logRotator(numToKeepStr:'3'))
             skipDefaultCheckout()
     }
-    environment {
+/*    environment {
         build_log = ""
-    }
+    }   */
     stages {
 
     	stage('Check Out from SCM') { // Get some code from a GitHub repository
@@ -23,7 +23,6 @@ pipeline {
             retry(2){
               script{
               build_log = sh(
-              returnStdout: false,
               script: '''/usr/bin/ansible-playbook ansible-ec2-provision.yml''').trim()
               }
               }
