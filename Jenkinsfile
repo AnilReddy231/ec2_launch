@@ -21,10 +21,12 @@ pipeline {
 	      steps {
           timeout(time: 5, unit: 'MINUTES') {
             retry(2){
+            withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws_jenkins_user']]){
               script{
               build_log = sh(
               returnStdout: true,
               script: '''ansible-playbook --vault-password-file ~/.ssh/vault_password ansible-ec2-provision.yml -i inventory/ec2.py -v''').trim()
+              }
               }
               }
       	}
