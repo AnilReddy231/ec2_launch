@@ -17,7 +17,7 @@ pipeline {
 	           }
    	}
 
-	   stage('BuildingModule') {
+	   stage('EC2 Instance Provisioning') {
 	      steps {
           timeout(time: 5, unit: 'MINUTES') {
             retry(2){
